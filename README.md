@@ -1,11 +1,11 @@
 # agentic-cake-forecasting
 
 A toy end-to-end testbed for forecasting when AI agents can autonomously complete a
-long, physically-grounded task chain — here, baking and delivering a vegan cake.
+long, physically-grounded task chain; for now... baking and delivering a vegan cake.
 
-The cake is a stand-in. The point is the machinery: a task graph of atomic steps, a
-Bayesian belief network over per-step autonomy probabilities, evidence accumulated
-from expert elicitation and evals, and a front end for inspecting the result.
+The cake is a stand-in. The point is to develop our method: a task graph of atomic steps, a
+Bayesian belief network over per-step autonomy/capability probabilities, evidence accumulated
+from expert elicitation and evals, and a front end for interacting with the result.
 
 ## Layout
 
@@ -26,7 +26,7 @@ docs/            design notes
 **Graph.** A goal decomposes into tasks, each of which decomposes into steps. A step
 is the atomic unit of belief: *can an AI system do this one step autonomously to a
 professional standard?* Steps are flagged `measurable: true` (directly evaluable) or
-`measurable: false` (latent — only observable through a stated `proxy`).
+`measurable: false` (i.e., latent, only observable through a stated `proxy`).
 
 **Evidence.** Each row is one observation about one node:
 
