@@ -36,7 +36,7 @@ professional standard?* Steps are flagged `measurable: true` (directly evaluable
 | `source_type` | `model_guess`, `expert`, `eval`, ... |
 | `source_id` | which model / which expert / which eval run |
 | `belief_mean` | central estimate of P(step succeeds autonomously) |
-| `belief_strength` | confidence as a pseudo-count — higher is tighter |
+| `belief_strength` | confidence as a pseudo-count |
 | `recorded_at` | ISO date |
 | `note` | free text |
 
