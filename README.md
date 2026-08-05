@@ -46,30 +46,3 @@ for one node are pooled.
 
 Evidence is **append-only**: to revise a belief, add a new row rather than editing an
 old one. History is the audit trail.
-
-## Known issue: v1 graph / seed evidence drift
-
-`seed_evidence.csv` was recorded against a later graph than `cake_graph_v1.yaml`.
-Eight evidence node IDs have no matching step, and three steps have no evidence.
-Some are renames, some are genuinely new nodes. See `docs/DRIFT.md`.
-
-`scripts/validate_graph.py` fails on this by design. Resolve it by cutting a `v2`
-graph that reconciles the two, then keep CI green from there.
-
-## Quickstart
-
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
-
-python scripts/validate_graph.py data/graphs/cake_graph_v1.yaml data/evidence/seed_evidence.csv
-pytest
-```
-
-## Roadmap
-
-- [ ] Reconcile graph/evidence drift; cut `cake_graph_v2.yaml`
-- [ ] Pyro BBN: per-step Beta posteriors, chain closure probability for the goal
-- [ ] Expert elicitation intake → evidence rows
-- [ ] Move evidence from CSV to a real database once row count justifies it
-- [ ] Front end: graph view, per-node posteriors, sensitivity to individual steps
