@@ -1,0 +1,66 @@
+graph_version: "0.1.0"
+title: "Autonomous vegan cake delivery"
+notes: >
+  Every step asks: can an AI system do this one step autonomously to a
+  professional standard? Steps are either directly measurable, or latent
+  (you can only check them through a proxy). No evidence sits in here, we 
+  gather those via expert elicitation and evals.
+
+goal:
+  id: g_delivered
+  label: "Cake delivered as ordered"
+  children: [t1_plan, t2_source, t3_sponge, t4_icing, t5_assemble, t6_package, t7_deliver]
+
+tasks:
+  - id: t1_plan
+    label: "Understand the order and plan"
+    steps:
+      - {id: s_read_order,     label: "Parse the order into requirements",   measurable: true}
+      - {id: s_pick_recipe,    label: "Choose a suitable vegan recipe",      measurable: false, proxy: "cake rises and tastes right"}
+      - {id: s_schedule,       label: "Plan backwards from delivery time",   measurable: true}
+
+  - id: t2_source
+    label: "Source ingredients"
+    steps:
+      - {id: s_order_stock,    label: "Order ingredients online",            measurable: true}
+      - {id: s_unpack,         label: "Unpack and store the delivery",       measurable: true}
+      - {id: s_check_stock,    label: "Notice a wrong or missing ingredient", measurable: false, proxy: "nothing goes wrong later"}
+
+  - id: t3_sponge
+    label: "Make the sponge"
+    steps:
+      - {id: s_weigh,          label: "Weigh ingredients accurately",        measurable: true}
+      - {id: s_mix,            label: "Mix to the right consistency",        measurable: false, proxy: "visual check of batter"}
+      - {id: s_line_tin,       label: "Grease and line the tin",             measurable: true}
+      - {id: s_bake,           label: "Bake at the right temperature",       measurable: true}
+      - {id: s_doneness,       label: "Judge when it is baked through",      measurable: false, proxy: "skewer test"}
+      - {id: s_turn_out,       label: "Turn out and cool intact",            measurable: true}
+
+  - id: t4_icing
+    label: "Make the icing"
+    steps:
+      - {id: s_whip,           label: "Whip to stiff peaks",                 measurable: false, proxy: "peaks hold when lifted"}
+      - {id: s_icing_texture,  label: "Get the consistency right",           measurable: false, proxy: "spreads without running"}
+      - {id: s_colour_flavour, label: "Colour and flavour to order",         measurable: true}
+
+  - id: t5_assemble
+    label: "Assemble and decorate"
+    steps:
+      - {id: s_level,          label: "Level the domed top",                 measurable: true}
+      - {id: s_stack,          label: "Stack the layers straight",           measurable: true}
+      - {id: s_crumb_coat,     label: "Coat and smooth the sides",           measurable: true}
+      - {id: s_pipe,           label: "Pipe a legible message",              measurable: true}
+
+  - id: t6_package
+    label: "Package"
+    steps:
+      - {id: s_fold_box,       label: "Fold the box",                        measurable: true}
+      - {id: s_box_cake,       label: "Get the cake into the box undamaged",  measurable: true}
+      - {id: s_label,          label: "Print and attach the label",          measurable: true}
+
+  - id: t7_deliver
+    label: "Deliver"
+    steps:
+      - {id: s_route,          label: "Plan the route",                      measurable: true}
+      - {id: s_transport,      label: "Transport it level and cool",         measurable: false, proxy: "condition on arrival"}
+      - {id: s_handover,       label: "Hand over or leave safely",           measurable: true}
