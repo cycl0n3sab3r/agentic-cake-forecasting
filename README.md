@@ -3,7 +3,7 @@
 A toy end-to-end testbed for forecasting when AI agents can autonomously complete a
 long, physically-grounded task chain; for now... baking and delivering a vegan cake.
 
-The cake is a stand-in. The point is to develop our method: a task graph of atomic steps, a
+The cake is a safe trivial example. Our goal is to develop our method: a task graph of atomic steps, a
 Bayesian belief network over per-step autonomy/capability probabilities, evidence accumulated
 from expert elicitation and evals, and a front end for interacting with the result.
 
@@ -42,7 +42,7 @@ professional standard?* Steps are flagged `measurable: true` (directly evaluable
 
 `(mean, strength)` maps to a Beta prior as `Beta(mean·strength, (1−mean)·strength)`,
 so `strength` reads directly as "worth about this many observations". Multiple rows
-for one node are pooled.
+for one node are pooled to get more robust estimates.
 
 Evidence is **append-only**: to revise a belief, add a new row rather than editing an
-old one. History is the audit trail.
+old one (I reason this let's us keep track better).
