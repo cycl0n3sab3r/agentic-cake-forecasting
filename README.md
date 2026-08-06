@@ -3,8 +3,8 @@
 A toy end-to-end testbed for forecasting when AI agents can autonomously complete a
 long, physically-grounded task chain; for now... baking and delivering a vegan cake.
 
-The cake is a safe trivial example. Our goal is to develop our method: a task graph of atomic steps, a
-Bayesian belief network over per-step autonomy/capability probabilities, evidence accumulated
+We're making a vegan cake as a trivial example to test our method: a task graph of atomic steps, a
+Bayesian belief network over per-step autonomous capability probabilities, evidence accumulated
 from expert elicitation and evals, and a front end for interacting with the result.
 
 ## Layout
@@ -32,7 +32,7 @@ professional standard?* Steps are flagged `measurable: true` (directly evaluable
 
 | column | meaning |
 |---|---|
-| `node_id` | step ID it attaches to |
+| `node_id` | step ID it attaches to, e.g., mix ingredients step |
 | `source_type` | `model_guess`, `expert`, `eval`, ... |
 | `source_id` | which model / which expert / which eval run |
 | `belief_mean` | central estimate of P(step succeeds autonomously) |
