@@ -3,8 +3,8 @@ title: "Autonomous vegan cake delivery"
 notes: >
   Every step asks: can an AI system do this one step autonomously to a
   professional standard? Steps are either directly measurable, or latent
-  (you can only check them through a proxy). No evidence sits in here, we 
-  gather those via expert elicitation and evals.
+  (you can only check them through a proxy). No evidence goes in here, we 
+  gather it via expert elicitation and evals. Store in CSV, or later a DB.
 
 goal:
   id: g_delivered
