@@ -13,7 +13,6 @@ from expert elicitation and evals, and a front end for interacting with the resu
 data/
   graphs/        task-graph definitions (YAML), versioned by filename
   evidence/      per-node belief observations (CSV), append-only
-src/cakecast/    Python package: graph loading, evidence, BBN model
 scripts/         one-shot utilities (validation, import, export)
 tests/           pytest suite
 frontend/        web UI (not yet started)
